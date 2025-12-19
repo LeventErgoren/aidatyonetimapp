@@ -1,6 +1,6 @@
 package com.example.config;
 
-import com.example.model.Kullanici;
+import com.example.entity.Kullanici;
 import com.example.repository.KullaniciRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

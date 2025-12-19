@@ -1,6 +1,7 @@
 package com.example.handler;
 
 import com.example.exception.AuthFailException;
+import com.example.exception.BusinessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,6 +12,13 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<Object> businessExceptionHandler(BusinessException ex) {
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(getMap(HttpStatus.UNAUTHORIZED, ex.getMessage()));
+    }
 
     @ExceptionHandler(AuthFailException.class)
     public ResponseEntity<Object> authFailExceptionHandler(AuthFailException ex) {

@@ -18,8 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    private static final String AUTHENTICATE = "/authenticate";
-    private static final String REGISTER = "/register";
+    private static final String APIV1 = "/api/v1/auth/**";
 
     @Autowired
     private AuthenticationProvider authenticationProvider;
@@ -33,7 +32,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(requesst -> requesst.requestMatchers(AUTHENTICATE, REGISTER)
+                .authorizeHttpRequests(requesst -> requesst.requestMatchers(APIV1)
                         .permitAll()
                         .anyRequest()
                         .authenticated())

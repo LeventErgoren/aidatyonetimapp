@@ -1,6 +1,6 @@
 package com.example.jwt;
 
-import com.example.model.Kullanici;
+import com.example.entity.Kullanici;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
